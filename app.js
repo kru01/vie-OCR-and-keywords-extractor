@@ -22,12 +22,13 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage}).single('avatar');
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.render('index', {output: `Awaiting Input...`, keywords: `Keywords will appear here...`});
 });
 
-app.post('/upload', (req, res) => {
+app.post('/', (req, res) => {
     upload(req, res, (err) => {
         fs.readFile(`./uploadedImages/${req.file.originalname}`, async (err, data) => {
             if(err) return console.log(`This is your error`, err);
@@ -36,7 +37,7 @@ app.post('/upload', (req, res) => {
             await worker.loadLanguage('vie');
             await worker.initialize('vie');
             const { data: { text } } = await worker.recognize(data);
-            await worker.terminate();
+            // await worker.terminate();
             
             let result = text;
             
@@ -56,21 +57,6 @@ app.post('/upload', (req, res) => {
 function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
-
-// app.post('/upload', (req, res) => {
-//     upload(req, res, (err) => {
-//         fs.readFile(`./uploadedImages/${req.file.originalname}`, (err, data) => {
-//             if(err) return console.log(`This is your error`, err);
-
-//             worker
-//                 .recognize(data, 'vie', { logger: m => console.log(m) }, {tessjs_create_pdf: '1'})
-//                 .then(result => {
-//                     res.send(result.text);
-//                 })
-//                 .finally(() => worker.terminate());
-//         });
-//     });
-// });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`I'm running on port ${PORT}`));

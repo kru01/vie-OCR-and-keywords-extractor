@@ -9,18 +9,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <!-- <link href="style.css" rel="stylesheet"> -->
+    <link href="/style.css" rel="stylesheet">
     <!-- <script src="script.js" defer></script> -->
 </head>
 
-<body style="background:#212121; color: #f2aa4c;">
-    <h1>Vietnamese Text OCR And Keywords Extractor</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="avatar" />
-        <button type="submit">Convert</button>
-    </form>
-    <p><%= output %></p>
-    <p><%= keywords %></p>
+<body>
+    <header>
+        <h1>Vietnamese Text OCR And Keywords Extractor</h1>
+    </header>
+
+    <main>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="avatar">
+            <button type="submit">Convert</button>
+        </form>
+        
+        <div id="outputHolder">
+            <h2>Extracted Text</h2>
+            <p><%= output %></p>
+            <h2 id="keywordsText">Keywords (separated by space)</h2>
+            <p><%= keywords %></p>
+        </div>
+    </main>
 </body>
 
 </html>
