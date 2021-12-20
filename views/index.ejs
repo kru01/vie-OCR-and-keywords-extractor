@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <link href="/style.css" rel="stylesheet">
-    <!-- <script src="script.js" defer></script> -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <main>
         <form action="/" method="POST" enctype="multipart/form-data">
             <input type="file" name="avatar">
-            <button type="submit">Convert</button>
+            <button id="convertButton" type="submit">Convert</button>
         </form>
         
         <div id="outputHolder">
@@ -31,6 +31,12 @@
             <p><%= keywords %></p>
         </div>
     </main>
+
+    <footer>
+        <p>A product of</p>
+        <a target="_blank" href="https://github.com/kru01"><img id="profile" src="/images/GroupHigh.jpg"></a>
+        <a id="profileText" target="_blank" href="https://github.com/kru01">GroupHigh</a>
+    </footer>
 </body>
 
 </html>

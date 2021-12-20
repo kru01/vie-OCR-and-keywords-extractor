@@ -91,3 +91,38 @@ main #outputHolder {
 #outputHolder #keywordsText {
     margin-top: 1em;
 }
+
+/* FOOTER */
+body footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #f2aa4c;
+}
+
+footer #profile {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+
+footer #profile:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .4s;
+}
+
+footer #profileText {
+    text-decoration: none;
+    color: #f2aa4c;
+}
+
+footer #profileText:hover {
+    color:  hsl(350deg, 84%, 55%);
+    text-decoration: underline;
+}
+/* END OF FOOTER */

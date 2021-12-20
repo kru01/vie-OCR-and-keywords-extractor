@@ -29,6 +29,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+    console.log(req);
+
     upload(req, res, (err) => {
         fs.readFile(`./uploadedImages/${req.file.originalname}`, async (err, data) => {
             if(err) return console.log(`This is your error`, err);
@@ -41,8 +43,8 @@ app.post('/', (req, res) => {
             
             let result = text;
             
-            result.replace(/[^a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\d ]/g, ' ');
-            result.replace(/\s\s+/g, ' ');
+            result = result.replace(/[^a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\d ]/g, ' ');
+            result = result.replace(/\s\s+/g, ' ');
 
             result = result.split(' ');
             result = result.filter(word => stopwords.indexOf(word) === -1);
