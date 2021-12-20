@@ -21,6 +21,7 @@ body {
 
 body header {
     margin: 3em;
+    text-align: center;
 }
 
 body main {
@@ -29,12 +30,14 @@ body main {
     align-items: center;
 }
 
+main form {
+    color: #e09d46;
+}
+
 form input {
     margin: 0.8em;
-    color: #e09d46;
     cursor: pointer;
     padding: 15px 20px;
-    font-size: 20px;
     border: 0px solid transparent;
     border-radius: 0.325em;
     box-shadow: 4px 8px 4px 0px rgb(0 0 0 / 50%);
@@ -46,7 +49,7 @@ form button {
     color: #e09d46;
     cursor: pointer;
     padding: 15px 20px;
-    font-size: 20px;
+    font-size: 15px;
     border: 0px solid transparent;
     border-radius: 0.325em;
     box-shadow: 4px 8px 4px 0px rgb(0 0 0 / 50%);
@@ -126,3 +129,25 @@ footer #profileText:hover {
     text-decoration: underline;
 }
 /* END OF FOOTER */
+
+@media(max-width: 600px) {
+    main form {
+        display: flex;
+        flex-direction: column;
+        width: 75vw;
+        gap: 0.4em;
+    }
+
+    main #outputHolder {
+        font-size: 15px;
+    }
+
+    body footer {
+        font-size: 15px;
+    }
+
+    footer #profile {
+        width: 30px;
+        height: 30px;
+    }
+}
