@@ -1,4 +1,4 @@
-# Vietnamse OCR And Keywords Extractor
+# Vietnamese OCR And Keywords Extractor
 
 Live preview: https://vie-ocr-keywords-extractor.herokuapp.com/
 
